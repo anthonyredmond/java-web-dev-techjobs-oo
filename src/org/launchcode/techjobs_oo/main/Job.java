@@ -1,7 +1,5 @@
 package org.launchcode.techjobs_oo.main;
 
-import org.launchcode.techjobs_oo.PositionType;
-
 import java.util.Objects;
 
 public class Job {
@@ -96,4 +94,17 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        return
+                    "ID:" + id +"\n"+
+                    "Name: " + name + "\n"+
+                    "Employer: " + employer + "\n"+
+                    "Location: " + location +"\n"+
+                    "Position Type: " + positionType +"\n"+
+                    "Core Competency: " + coreCompetency ;
+
+
+        }
 }

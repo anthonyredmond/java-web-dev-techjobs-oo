@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.launchcode.techjobs_oo.PositionType;
+import org.launchcode.techjobs_oo.main.PositionType;
 import org.launchcode.techjobs_oo.main.*;
 
 public class JobTest {
@@ -40,7 +40,30 @@ public class JobTest {
     assertFalse(jobSearchFile1.equals(jobSearchFile2));
     }
 
+    @Test
+    public void testToString() {
+        Job jobSearchFile1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String output = "ID:"+jobSearchFile1.getId()+"\n"+
+         "Name: Product tester"+"\n"+
+         "Employer: ACME"+"\n"+
+        "Location: Desert"+"\n"+
+         "Position Type: Quality control"+"\n"+
+         "Core Competency: Persistence";
+        assertEquals(output,jobSearchFile1.toString());
 
 
-}
+
+    }
+
+
+
+
+
+
+
+
+
+
+    }
+
 
