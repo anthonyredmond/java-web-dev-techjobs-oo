@@ -1,4 +1,6 @@
-package org.launchcode.techjobs_oo;
+package org.launchcode.techjobs_oo.main;
+
+import org.launchcode.techjobs_oo.PositionType;
 
 import java.util.Objects;
 
