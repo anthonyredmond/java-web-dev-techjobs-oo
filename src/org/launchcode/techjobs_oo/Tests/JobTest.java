@@ -20,13 +20,13 @@ public class JobTest {
 
     @Test
     public void  testSettingJobId() {
-    assertFalse(bushGrove.equals(stateFarm));
+        assertNotEquals(bushGrove, stateFarm);
     }
 
     @Test
     public  void testJobConstructorSetsAllFields() {
         Job jobSearchFile = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(jobSearchFile.equals(jobSearchFile));
+        assertEquals(jobSearchFile, jobSearchFile);
         assertEquals("Product tester", jobSearchFile.getName());
         assertEquals("ACME", jobSearchFile.getEmployer().getValue());
         assertEquals("Desert", jobSearchFile.getLocation().getValue());
@@ -37,33 +37,33 @@ public class JobTest {
     public void testJobsForEquality(){
             Job jobSearchFile1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             Job jobSearchFile2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    assertFalse(jobSearchFile1.equals(jobSearchFile2));
+        assertNotEquals(jobSearchFile1, jobSearchFile2);
     }
 
     @Test
     public void testToString() {
         Job jobSearchFile1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String output = "ID:"+jobSearchFile1.getId()+"\n"+
-         "Name: Product tester"+"\n"+
-         "Employer: ACME"+"\n"+
-        "Location: Desert"+"\n"+
-         "Position Type: Quality control"+"\n"+
-         "Core Competency: Persistence";
+        String output =
+                "\n"+"ID:"+jobSearchFile1.getId()+"\n"+
+                "Name: Product tester"+"\n"+
+                "Employer: ACME"+"\n"+
+                "Location: Desert"+"\n"+
+                "Position Type: Quality control"+"\n"+
+                "Core Competency: Persistence\n";
         assertEquals(output,jobSearchFile1.toString());
 
 
 
     }
 
-
-
-
-
-
-
-
-
-
+    @Test
+    public void testToStringInAndOut() {
+        Job jobSearchFile2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        char first = jobSearchFile2.toString().charAt(0);
+        char end = jobSearchFile2.toString().charAt(jobSearchFile2.toString().length()-1);
+        assertEquals(first, end);
+        assertEquals(first,end);
     }
+}
 
 
